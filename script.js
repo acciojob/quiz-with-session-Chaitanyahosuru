@@ -34,6 +34,7 @@ const questions = [
 const questionsElement = document.getElementById("questions");
 let userAnswers = JSON.parse(sessionStorage.getItem("progress")) || [];
 
+// Display the quiz questions and choices
 function renderQuestions() {
   for (let i = 0; i < questions.length; i++) {
     const question = questions[i];
@@ -74,5 +75,8 @@ document.getElementById("submit").addEventListener("click", () => {
     }
   }
   localStorage.setItem("score", score);
-  document.getElementById("result").textContent = `Your score is ${score} out of ${questions.length}.`;
+  
+  if(document.getElementById("result")) {
+    document.getElementById("result").textContent = `Your score is ${score} out of ${questions.length}.`;
+  }
 });
