@@ -30,7 +30,7 @@ const questions = [
     }
 ];
 
-const quizContainer = document.getElementById('quiz');
+const questionsContainer = document.getElementById('questions');
 const submitButton = document.getElementById('submit');
 const resultContainer = document.getElementById('result');
 
@@ -83,7 +83,7 @@ function displayQuiz() {
                 </label><br>
             `;
         });
-        quizContainer.appendChild(questionDiv);
+        questionsContainer.appendChild(questionDiv);
     });
 }
 
@@ -94,6 +94,11 @@ submitButton.addEventListener('click', () => {
     localStorage.setItem('score', score);
 });
 
-// Load progress and display quiz
-loadProgress();
-displayQuiz();
+// Initialize quiz
+function initQuiz() {
+    displayQuiz();
+    loadProgress();
+}
+
+// Run the initialization
+initQuiz();
